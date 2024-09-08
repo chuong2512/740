@@ -6,22 +6,23 @@ public class PurchasingManager : MonoBehaviour
 {
    public void OnPressDown(int i)
    {
+      
       switch (i)
       {
          case 1:
-            GameDataManager.Instance.playerData.AddDiamond(1);
+            AddDiamond(1);
              IAPManager.Instance.BuyProductID(IAPKey.PACK1);
             break;
          case 2:
-            GameDataManager.Instance.playerData.AddDiamond(3);
+            AddDiamond(3);
             IAPManager.Instance.BuyProductID(IAPKey.PACK2);
             break;
          case 3:
-            GameDataManager.Instance.playerData.AddDiamond(5);
+            AddDiamond(5);
             IAPManager.Instance.BuyProductID(IAPKey.PACK3);
             break;
          case 4:
-            GameDataManager.Instance.playerData.AddDiamond(10);
+            AddDiamond(10);
             IAPManager.Instance.BuyProductID(IAPKey.PACK4);
             break;
       }
@@ -30,5 +31,13 @@ public class PurchasingManager : MonoBehaviour
    public void Sub(int i)
    {
       GameDataManager.Instance.playerData.SubDiamond(i);
+   }
+
+   public void AddDiamond(int a)
+   {
+      var coinAmount = PlayerPrefs.GetFloat(Constants.COIN, 0);
+      coinAmount += a;
+      PlayerPrefs.SetFloat(Constants.COIN, coinAmount);
+      
    }
 }

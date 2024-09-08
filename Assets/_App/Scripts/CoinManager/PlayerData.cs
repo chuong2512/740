@@ -59,6 +59,9 @@ public class PlayerData : BaseData
 
     public void AddDiamond(int a)
     {
+        
+        
+        
         intDiamond += a;
 
         onChangeDiamond?.Invoke(intDiamond);
