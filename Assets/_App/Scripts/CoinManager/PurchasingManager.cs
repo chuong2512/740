@@ -35,6 +35,8 @@ public class PurchasingManager : MonoBehaviour
 
    public void AddDiamond(int a)
    {
+      GameDataManager.Instance.playerData.AddDiamond(a);
+      return;
       var coinAmount = PlayerPrefs.GetFloat(Constants.COIN, 0);
       coinAmount += a;
       PlayerPrefs.SetFloat(Constants.COIN, coinAmount);
